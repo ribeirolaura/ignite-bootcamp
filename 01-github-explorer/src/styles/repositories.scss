@@ -1,0 +1,32 @@
+section.repository-list {
+    margin: 40px; 
+
+    h1{
+        margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none; 
+    }
+
+    li {
+        //& comercial referencia o proprio elemento - aqui abaixo lê-se:
+        // sempre que tiver um li e o item anterior a ele também for uma li, dou um margin top nele
+        & + li {
+            margin-top: 20px;
+        }
+    }
+
+    p { 
+        font-size: 14px; 
+        color: #444; 
+        margin-top: 8px; 
+    }
+
+    a {
+        display: inline-block; 
+        margin-top: 16px; 
+        text-decoration: none;
+        color: #8257e6;
+    }
+}
