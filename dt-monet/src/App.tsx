@@ -4,6 +4,7 @@ import { GlobalStyle } from "./styles/global"
 
 import Modal from 'react-modal';
 import { useState } from "react";
+import { NewTransactionModal } from "./components/NewTransactionModal";
 
 // Para facilitar em quesitos de acessibilidade, antes da declaração abaixo, o modal envolvia a div #root principal gerada no html e levando em consideração a acessibilidade
 // para leitura dos elementos, o elemento #root deve ser o principal a envolver todo o código
@@ -24,16 +25,15 @@ export function App() {
 
   }
   
+  
   return (
     <>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal}/>
       <Dashboard />
-      <Modal 
-          isOpen={isNewTransactionModalOpen}
-          onRequestClose={handleCloseNewTransactionModal}
-        >
-          <h2>Cadastro de Modal</h2>
-        </Modal>
+      <NewTransactionModal 
+        isOpen={isNewTransactionModalOpen} 
+        onRequestClose={handleCloseNewTransactionModal} 
+      />
       <GlobalStyle />
     </>
   );
