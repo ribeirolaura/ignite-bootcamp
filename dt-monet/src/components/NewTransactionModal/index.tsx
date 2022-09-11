@@ -5,6 +5,7 @@ import { Container, TransactionTypeContainer, RadioBox } from "./styles";
 import closeImg from "../../assets/close.svg";
 import incomeImg from "../../assets/entradas.svg";
 import outcomeImg from "../../assets/saídas.svg";
+import { api } from "../../services/api";
 
 interface NewTransactionModalProps {
   isOpen: boolean;
@@ -24,7 +25,9 @@ export function NewTransactionModal({
 
   function handleCreateNewTransaction (event: FormEvent) { 
     event.preventDefault(); 
-    console.log({type, title, value, category});
+    const data = {type, title, value, category};
+
+    api.post('transactions', data);
   }
 
   
