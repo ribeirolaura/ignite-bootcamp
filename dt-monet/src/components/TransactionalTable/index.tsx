@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { captureRejectionSymbol } from "stream";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
+import { TransactionsContext } from "../../TransactionsContext";
 import { Container } from "./styles";
 
 interface TransactionProps {
@@ -14,6 +14,8 @@ interface TransactionProps {
 
 export function TransactionalTable() {
   const [transactions, setTransactions] = useState<TransactionProps[]>([]);
+  const data = useContext(TransactionsContext); 
+
 
   useEffect(() => {
     api.get("transactions").then((response) => {
