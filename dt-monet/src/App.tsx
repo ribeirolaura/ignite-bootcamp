@@ -5,7 +5,7 @@ import { GlobalStyle } from "./styles/global"
 import Modal from 'react-modal';
 import { useState } from "react";
 import { NewTransactionModal } from "./components/NewTransactionModal";
-import { TransactionsProvider } from "./TransactionsContext";
+import { TransactionsProvider } from "./hooks/useTransactions";
 
 // Para facilitar em quesitos de acessibilidade, antes da declaração abaixo, o modal envolvia a div #root principal gerada no html e levando em consideração a acessibilidade
 // para leitura dos elementos, o elemento #root deve ser o principal a envolver todo o código

@@ -36,3 +36,10 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const Paragraph = styled.p`
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--text-body) ;
+`; 

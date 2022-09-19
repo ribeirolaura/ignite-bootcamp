@@ -1,15 +1,19 @@
-import { useContext } from "react";
-import { TransactionsContext } from "../../TransactionsContext";
-import { Container } from "./styles";
-
+import { useTransactions } from "../../hooks/useTransactions";
+import { Container, Paragraph } from "./styles";
 
 export function TransactionalTable() {
   
-  const {transactions} = useContext(TransactionsContext); 
+  const {transactions} = useTransactions(); 
 
   return (
     <Container>
-      <table>
+      {
+        transactions.length === 0 ? (
+          <Paragraph>Nothing here yet! Click on 'Nova Transação' to add a transaction!</Paragraph>
+        )
+      : (
+
+        <table>
         <thead>
           <tr>
             <th>Título</th>
@@ -19,8 +23,8 @@ export function TransactionalTable() {
           </tr>
         </thead>
         <tbody>
-          {transactions.map(transaction => (
-            <tr key={transaction.id}>
+           { transactions.map(transaction => (
+              <tr key={transaction.id}>
               <td>{transaction.title}</td>
               <td className={transaction.type}>{new Intl.NumberFormat('pt-br', {
                 style: 'currency',
@@ -29,9 +33,11 @@ export function TransactionalTable() {
               <td>{transaction.category}</td>
               <td>{new Intl.DateTimeFormat('pt-br').format(new Date(transaction.createdAt))}</td>
             </tr>
-          ))}
+          ))
+        }
         </tbody>
       </table>
+      )}
     </Container>
   );
 }
